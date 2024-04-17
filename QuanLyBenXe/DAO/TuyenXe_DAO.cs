@@ -69,5 +69,26 @@ N'{1}',N'{2}',N'{3}', N'{4}')", tx.IdTuyen1, tx.TenTuyen1, tx.DiaDiemDi1, tx.Dia
             conn.Close();
             return kq;
         }
+
+        // SuaTuyenXe
+        public static bool SuaTuyenXe(TuyenXe_DTO tx)
+        {
+            string sTruyVan = string.Format(@"update TuyenXe set IdTuyen=N'{0}',TenTuyen=N'{1}',DiaDiemDi=N'{2}',DiaDiemDen='{3}',Gia=N'{4}' where IdTuyen=N'{0}'", tx.IdTuyen1, tx.TenTuyen1, tx.DiaDiemDi1, tx.DiaDiemDen1, tx.Gia1);
+            conn = DataProvider.Connect();
+            bool kq = DataProvider.TruyVanKhongLayDuLieu(sTruyVan, conn);
+            conn.Close();
+            return kq;
+
+        }
+
+        // XoaTuyenXe
+        public static bool XoaTuyenXe(TuyenXe_DTO tx)
+        {
+            string sTruyVan = string.Format(@"delete from TuyenXe where IdTuyen=N'{0}'", tx.IdTuyen1);
+            conn = DataProvider.Connect();
+            bool kq = DataProvider.TruyVanKhongLayDuLieu(sTruyVan, conn);
+            conn.Close();
+            return kq;
+        }
     }
 }

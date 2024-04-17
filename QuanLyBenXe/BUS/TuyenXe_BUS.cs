@@ -18,9 +18,21 @@ namespace BUS
             return TuyenXe_DAO.TimTuyenXeTheoMa(ma);
         }
         // Thêm tuyến xe
-        public static bool ThemTuyenXe(TuyenXe_DTO nv)
+        public static bool ThemTuyenXe(TuyenXe_DTO tx)
         {
-            return TuyenXe_DAO.ThemTuyenXe(nv);
+            return TuyenXe_DAO.ThemTuyenXe(tx);
+        }
+
+        // Sửa nhân viên
+        public static bool SuaTuyenXe(TuyenXe_DTO tx)
+        {
+            return TuyenXe_DAO.SuaTuyenXe(tx);
+        }
+
+        // Xóa nhân viên
+        public static bool XoaTuyenXe(TuyenXe_DTO tx)
+        {
+            return TuyenXe_DAO.XoaTuyenXe(tx);
         }
     }
 }

@@ -10,9 +10,9 @@ using DTO;
 using BUS;
 namespace GUI
 {
-    public partial class Form1 : Form
+    public partial class fTuyenXe : Form
     {
-        public Form1()
+        public fTuyenXe()
         {
             InitializeComponent();
         }
@@ -43,7 +43,9 @@ namespace GUI
             txtGia.Text = r.Cells["Gia1"].Value.ToString();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+    
+
+        private void btnThemTuyen_Click(object sender, EventArgs e)
         {
             if (txtIdTuyen.Text == "" || txtTenTuyen.Text == "" || txtDiaDiemDi.Text == "" || txtDiaDiemDen.Text == "")
             {
@@ -62,14 +64,14 @@ namespace GUI
             {
                 MessageBox.Show("Mã tuyến xe đã tồn tại!");
                 return;
-            }   
+            }
             TuyenXe_DTO tx = new TuyenXe_DTO();
             tx.IdTuyen1 = txtIdTuyen.Text;
             tx.TenTuyen1 = txtTenTuyen.Text;
             tx.DiaDiemDi1 = txtDiaDiemDi.Text;
             tx.DiaDiemDen1 = txtDiaDiemDen.Text;
             tx.Gia1 = Int32.Parse(txtGia.Text);
-            
+
             if (TuyenXe_BUS.ThemTuyenXe(tx) == false)
             {
                 MessageBox.Show("Không thêm được.");
@@ -79,6 +81,59 @@ namespace GUI
             {
                 HienThiTuyenXe();
                 MessageBox.Show("Đã thêm tuyến xe.");
+            }
+        }
+
+        private void btnSuaTuyen_Click(object sender, EventArgs e)
+        {
+            // kiểm tra mã có tồn tại
+            if (txtIdTuyen.Text == "" || TuyenXe_BUS.TimTuyenXeTheoMa(txtIdTuyen.Text) == null)
+            {
+                MessageBox.Show("Vui lòng chọn mã tuyến!");
+                return;
+            }
+            TuyenXe_DTO tx = new TuyenXe_DTO();
+            tx.IdTuyen1 = txtIdTuyen.Text;
+            tx.TenTuyen1 = txtTenTuyen.Text;
+            tx.DiaDiemDi1 = txtDiaDiemDi.Text;
+            tx.DiaDiemDen1 = txtDiaDiemDen.Text;
+            tx.Gia1 = Int32.Parse(txtGia.Text);
+
+
+            if (TuyenXe_BUS.SuaTuyenXe(tx) == true)
+            {
+                HienThiTuyenXe();
+                MessageBox.Show("Đã cập nhật thông tin tuyến xe.");
+            }
+            else
+            {
+                MessageBox.Show("Không cập nhật được.");
+            }
+        }
+
+        private void btnXoaTuyen_Click(object sender, EventArgs e)
+        {
+            // kiểm tra mã có tồn tại
+            if (txtIdTuyen.Text == "" || TuyenXe_BUS.TimTuyenXeTheoMa(txtIdTuyen.Text) == null)
+            {
+                MessageBox.Show("Vui lòng chọn mã tuyến!");
+                return;
+            }
+            TuyenXe_DTO tx = new TuyenXe_DTO();
+            tx.IdTuyen1 = txtIdTuyen.Text;
+            tx.TenTuyen1 = txtTenTuyen.Text;
+            tx.DiaDiemDi1 = txtDiaDiemDi.Text;
+            tx.DiaDiemDen1 = txtDiaDiemDen.Text;
+            tx.Gia1 = Int32.Parse(txtGia.Text);
+            
+            if (TuyenXe_BUS.XoaTuyenXe(tx) == true)
+            {
+                HienThiTuyenXe();
+                MessageBox.Show("Đã xóa tuyến xe.");
+            }
+            else
+            {
+                MessageBox.Show("Không xóa được.");
             }
         }
     }

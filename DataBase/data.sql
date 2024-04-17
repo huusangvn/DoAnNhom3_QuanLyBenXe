@@ -331,7 +331,6 @@ insert into DiaDiem values('BT',N'Bình thuận')
 -------------------------------------------------------------------------------------------
 
 insert into TuyenXe values('107',N'Sài Gòn - Nha Trang', N'Sài Gòn', N'Nha Trang',200000)
-insert into TuyenXe values('23',N'Sài Gòn - Đà Lạt', N'Sài Gòn', N'Đà Lạt',120000)
 insert into TuyenXe values('250',N'Sài Gòn - Cần Thơ', N'Sài Gòn', N'Cần Thơ',170000)
 insert into TuyenXe values('303',N'Sài Gòn - Tây Ninh', N'Sài Gòn', N'Tây Ninh',100000)
 insert into TuyenXe values('547',N'Sài Gòn - Phan Thiết', N'Sài Gòn', N'Phan Thiết',100000)
@@ -465,4 +464,4 @@ Insert into PhanQuyen values('mytien', 0, 1, 0, 1, 1)
 --select * from NguoiDung
 --select count(*) from ChiTietTuyen
 select *from TuyenXe
-select *from ChiTietTuyen
+select *from TuyenXe
