@@ -43,6 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="fBanVe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fBanVe.Designer.cs">
+      <DependentUpon>fBanVe.cs</DependentUpon>
+    </Compile>
     <Compile Include="fTuyenXe.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -51,6 +57,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="fBanVe.resx">
+      <DependentUpon>fBanVe.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="fTuyenXe.resx">
       <DependentUpon>fTuyenXe.cs</DependentUpon>
     </EmbeddedResource>
