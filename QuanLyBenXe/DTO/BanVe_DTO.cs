@@ -16,5 +16,9 @@ namespace DTO
         public string IdChuyen1 { get => IdChuyen; set => IdChuyen = value; }
         public string TenHanhKhach1 { get => TenHanhKhach; set => TenHanhKhach = value; }
         public int SDTHanhKhach1 { get => SDTHanhKhach; set => SDTHanhKhach = value; }
+   
+        public TuyenXe_DTO TxTuyenXe { get => txTuyenXe; set => txTuyenXe = value; }
+
+        private TuyenXe_DTO txTuyenXe;
     }
 }

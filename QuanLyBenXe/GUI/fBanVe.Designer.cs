@@ -29,35 +29,48 @@ namespace GUI
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.dtgvBanVe = new System.Windows.Forms.DataGridView();
+            this.cbBanVe = new System.Windows.Forms.ComboBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvBanVe)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dtgvBanVe
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(799, 376);
-            this.dataGridView1.TabIndex = 0;
+            this.dtgvBanVe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvBanVe.Location = new System.Drawing.Point(0, 0);
+            this.dtgvBanVe.Name = "dtgvBanVe";
+            this.dtgvBanVe.RowHeadersWidth = 51;
+            this.dtgvBanVe.RowTemplate.Height = 24;
+            this.dtgvBanVe.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtgvBanVe.Size = new System.Drawing.Size(799, 211);
+            this.dtgvBanVe.TabIndex = 0;
+            // 
+            // cbBanVe
+            // 
+            this.cbBanVe.FormattingEnabled = true;
+            this.cbBanVe.Location = new System.Drawing.Point(419, 262);
+            this.cbBanVe.Name = "cbBanVe";
+            this.cbBanVe.Size = new System.Drawing.Size(229, 24);
+            this.cbBanVe.TabIndex = 1;
             // 
             // fBanVe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.cbBanVe);
+            this.Controls.Add(this.dtgvBanVe);
             this.Name = "fBanVe";
             this.Text = "fBanVe";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.fBanVe_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvBanVe)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dtgvBanVe;
+        private System.Windows.Forms.ComboBox cbBanVe;
     }
 }

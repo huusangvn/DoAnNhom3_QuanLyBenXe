@@ -13,7 +13,7 @@ namespace DAO
         static SqlConnection conn;
         public static List<BanVe_DTO> LayVe()
         {
-            string sTruyVan = @"select *from BanVe";
+            string sTruyVan = @"select bv.*,tx.* from BanVe bv,Tuyenxe tx ";
             conn = DataProvider.Connect();
             DataTable dt = DataProvider.TruyVanLayDuLieu(sTruyVan, conn);
             if (dt.Rows.Count == 0)
@@ -27,7 +27,11 @@ namespace DAO
                 bv.IDVe1 = dt.Rows[i]["IdVe"].ToString();
                 bv.IdChuyen1 = dt.Rows[i]["IdChuyen"].ToString();
                 bv.TenHanhKhach1 = dt.Rows[i]["TenHanhKhach"].ToString();
-                bv.SDTHanhKhach1 = (int)dt.Rows[i]["SDTHanhKhach1"];
+                bv.SDTHanhKhach1 = (int)dt.Rows[i]["SDTHanhKhach"];
+
+                bv.TxTuyenXe = new TuyenXe_DTO();
+                bv.TxTuyenXe.IdTuyen1 = dt.Rows[i]["IdTuyen"].ToString();
+                bv.TxTuyenXe.TenTuyen1= dt.Rows[i]["TenTuyen"].ToString();
                 lstBanVe.Add(bv);
             }
             conn.Close();
