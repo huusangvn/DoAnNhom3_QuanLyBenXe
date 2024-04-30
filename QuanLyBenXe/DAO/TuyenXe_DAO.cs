@@ -32,6 +32,7 @@ namespace DAO
                 tx.Gia1 = (int)dt.Rows[i]["Gia"];
                 lstTuyenXe.Add(tx);
             }
+            conn.Close();
             return lstTuyenXe;
         }
 
@@ -56,6 +57,7 @@ namespace DAO
                 tx.Gia1 = (int)dt.Rows[i]["Gia"];
                 lstTuyenXe.Add(tx);
             }
+            conn.Close();
             return lstTuyenXe;
         }
 

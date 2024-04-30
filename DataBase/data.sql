@@ -94,6 +94,7 @@ create table ChiTietTuyen
 	IdTuyen varchar(30) not null,
 	IdThoiDiem varchar(30) not null
 )
+select *from ThoiDiem
 
 ------------------------------------Tabl7.ChuyenXe------------------------------------
 --------------------------------------------------------------------------------------
@@ -113,7 +114,7 @@ create table ChoNgoi
 	So_Xe varchar(8) not null,
 	TenChoNgoi nvarchar(10)not null
 )
-
+select *from ChoNgoi
 
 ------------------------------------Tabl10.BanVe-----------------------------------------
 -----------------------------------------------------------------------------------------
@@ -125,6 +126,10 @@ create table BanVe
 	SDTHanhKhach int
 )
 Go
+SELECT DISTINCT ChoNgoi.TenChoNgoi, BanVe.IdVe, BanVe.TenHanhKhach, BanVe.SDTHanhKhach
+FROM ChoNgoi
+JOIN BanVe ON ChoNgoi.IdChuyen = BanVe.IdChuyen;
+
 ---------------------------------------------------------------------------
 /* Tao 1 function Xe dung de cap nhat tang ma so tu dong cho cac Table () */
 ---------------------------------------------------------------------------
@@ -331,6 +336,7 @@ insert into DiaDiem values('BT',N'Bình thuận')
 -------------------------------------------------------------------------------------------
 
 insert into TuyenXe values('107',N'Sài Gòn - Nha Trang', N'Sài Gòn', N'Nha Trang',200000)
+insert into TuyenXe values('23',N'Sài Gòn - Đà Lạt', N'Sài Gòn', N'Đà Lạt',120000)
 insert into TuyenXe values('250',N'Sài Gòn - Cần Thơ', N'Sài Gòn', N'Cần Thơ',170000)
 insert into TuyenXe values('303',N'Sài Gòn - Tây Ninh', N'Sài Gòn', N'Tây Ninh',100000)
 insert into TuyenXe values('547',N'Sài Gòn - Phan Thiết', N'Sài Gòn', N'Phan Thiết',100000)
@@ -430,7 +436,7 @@ Insert into BanVe(IdChuyen, TenHanhKhach, SDTHanhKhach)
 Values('CX0001', N'Hoàng Văn Bình', '091843256')
 
 Insert into BanVe(IdChuyen, TenHanhKhach, SDTHanhKhach)
-Values('CX0001', N'Hoàng Văn Bình', '091843256')
+Values('CX0001', N'Hoàng Khang', '091843256')
 
 Insert into BanVe(IdChuyen, TenHanhKhach, SDTHanhKhach)
 Values('CX0001', N'Nguyễn Ngọc Quang Sáng', '090276189')
@@ -443,17 +449,15 @@ Values('CX0001', N'Nguyễn Thị Thanh Thúy', '091847916')
 
 ------------------------------------------Tabl.ChoNgoi--------------------------------------
 --------------------------------------------------------------------------------------------
-Insert Into ChoNgoi
-Values('CX0001', '55Y-7777', '1')
 
-Insert Into ChoNgoi
-Values('CX0001', '55Y-7777', '5')
+INSERT INTO ChoNgoi (IdChuyen, So_Xe, TenChoNgoi)
+VALUES
+    ('CX0001', '55Y-7777', '1'),
+    ('CX0001', '55Y-7777', '5'),
+    ('CX0001', '55Y-7777', '8'),
+    ('CX0001', '55Y-7777', '15')
 
-Insert Into ChoNgoi
-Values('CX0001', '55Y-7777', '8')
 
-Insert Into ChoNgoi
-Values('CX0001', '55Y-7777', '15')
 
 --select * from ChoNgoi
 --Select * from BanVe
@@ -465,3 +469,21 @@ Insert into PhanQuyen values('mytien', 0, 1, 0, 1, 1)
 --select count(*) from ChiTietTuyen
 select *from TuyenXe
 select *from TuyenXe
+
+select cx.*, tx.* from ChuyenXe cx,TuyenXe tx where cx.IdTuyen = tx.IdTuyen
+select *from ChuyenXe,TuyenXe where ChuyenXe.IdTuyen = TuyenXe.IdTuyen
+
+SELECT
+    bv.IdVe,
+    cx.IdChuyen,
+    bv.TenHanhKhach,
+    bv.SDTHanhKhach,
+    cx.NgayDi,
+    cx.Gio,
+    cx.So_Xe,
+    cn.TenChoNgoi
+FROM
+    BanVe bv
+    INNER JOIN ChuyenXe cx ON bv.IdChuyen = cx.IdChuyen
+    INNER JOIN ChoNgoi cn ON cn.IdChuyen = cx.IdChuyen AND cn.So_Xe = cx.So_Xe
+

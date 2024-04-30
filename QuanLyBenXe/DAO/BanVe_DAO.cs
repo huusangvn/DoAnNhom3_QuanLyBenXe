@@ -13,7 +13,7 @@ namespace DAO
         static SqlConnection conn;
         public static List<BanVe_DTO> LayVe()
         {
-            string sTruyVan = @"select bv.*,tx.* from BanVe bv,Tuyenxe tx ";
+            string sTruyVan = @"select * from ChoNgoi,ChuyenXe, BanVe,TuyenXe where ChuyenXe.IdChuyen = BanVe.IdChuyen and ChuyenXe.IdTuyen = TuyenXe.IdTuyen";
             conn = DataProvider.Connect();
             DataTable dt = DataProvider.TruyVanLayDuLieu(sTruyVan, conn);
             if (dt.Rows.Count == 0)
@@ -25,13 +25,13 @@ namespace DAO
             {
                 BanVe_DTO bv = new BanVe_DTO();
                 bv.IDVe1 = dt.Rows[i]["IdVe"].ToString();
-                bv.IdChuyen1 = dt.Rows[i]["IdChuyen"].ToString();
                 bv.TenHanhKhach1 = dt.Rows[i]["TenHanhKhach"].ToString();
                 bv.SDTHanhKhach1 = (int)dt.Rows[i]["SDTHanhKhach"];
 
-                bv.TxTuyenXe = new TuyenXe_DTO();
-                bv.TxTuyenXe.IdTuyen1 = dt.Rows[i]["IdTuyen"].ToString();
-                bv.TxTuyenXe.TenTuyen1= dt.Rows[i]["TenTuyen"].ToString();
+                bv.TenTuyen1 = dt.Rows[i]["TenTuyen"].ToString();
+                bv.NgayDi1 = (DateTime)dt.Rows[i]["NgayDi"];
+                bv.Gio1 = dt.Rows[i]["Gio"].ToString();
+                bv.So_Xe1 = dt.Rows[i]["So_Xe"].ToString();
                 lstBanVe.Add(bv);
             }
             conn.Close();

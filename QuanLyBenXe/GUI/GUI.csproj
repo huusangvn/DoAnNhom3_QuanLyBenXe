@@ -49,6 +49,12 @@
     <Compile Include="fBanVe.Designer.cs">
       <DependentUpon>fBanVe.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmChiTietTuyen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmChiTietTuyen.Designer.cs">
+      <DependentUpon>frmChiTietTuyen.cs</DependentUpon>
+    </Compile>
     <Compile Include="fTuyenXe.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -59,6 +65,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="fBanVe.resx">
       <DependentUpon>fBanVe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmChiTietTuyen.resx">
+      <DependentUpon>frmChiTietTuyen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fTuyenXe.resx">
       <DependentUpon>fTuyenXe.cs</DependentUpon>

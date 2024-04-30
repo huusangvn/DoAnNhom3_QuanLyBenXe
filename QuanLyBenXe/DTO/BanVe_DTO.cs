@@ -8,17 +8,21 @@ namespace DTO
     public class BanVe_DTO
     {
         private string IDVe;
-        private string IdChuyen;
         private string TenHanhKhach;
         private int SDTHanhKhach;
 
         public string IDVe1 { get => IDVe; set => IDVe = value; }
-        public string IdChuyen1 { get => IdChuyen; set => IdChuyen = value; }
         public string TenHanhKhach1 { get => TenHanhKhach; set => TenHanhKhach = value; }
         public int SDTHanhKhach1 { get => SDTHanhKhach; set => SDTHanhKhach = value; }
-   
-        public TuyenXe_DTO TxTuyenXe { get => txTuyenXe; set => txTuyenXe = value; }
+        public string TenTuyen1 { get => TenTuyen; set => TenTuyen = value; }
+        public DateTime? NgayDi1 { get => NgayDi; set => NgayDi = value; }
+        public string Gio1 { get => Gio; set => Gio = value; }
+        public string So_Xe1 { get => So_Xe; set => So_Xe = value; }
 
-        private TuyenXe_DTO txTuyenXe;
+        private string TenTuyen;
+        private DateTime? NgayDi;
+        private string Gio;
+        private string So_Xe;
+
     }
 }
