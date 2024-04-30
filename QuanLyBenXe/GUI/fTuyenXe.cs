@@ -20,6 +20,22 @@ namespace GUI
         private void Form1_Load(object sender, EventArgs e)
         {
             HienThiTuyenXe();
+            LoadTheme();
+        }
+        private void LoadTheme()
+        {
+            foreach (Control btns in this.Controls)
+            {
+                if (btns.GetType() == typeof(Button))
+                {
+                    Button btn = (Button)btns;
+                    btn.BackColor = ThemeColor.PrimaryColor;
+                    btn.ForeColor = Color.White;
+                    btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
+                }
+            }
+            lbTen1.ForeColor = ThemeColor.SecondaryColor;
+            lbTen2.ForeColor = ThemeColor.PrimaryColor;
         }
         public void HienThiTuyenXe()
         {
@@ -135,6 +151,46 @@ namespace GUI
             {
                 MessageBox.Show("Không xóa được.");
             }
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTenTuyen_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtGia_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtDiaDiemDi_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtDiaDiemDen_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

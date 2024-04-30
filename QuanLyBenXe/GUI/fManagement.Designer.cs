@@ -30,16 +30,17 @@ namespace GUI
         private void InitializeComponent()
         {
             this.panelMenu = new System.Windows.Forms.Panel();
-            this.btnCaiDat = new System.Windows.Forms.Button();
-            this.btnHuongDan = new System.Windows.Forms.Button();
-            this.btnTuyenXe = new System.Windows.Forms.Button();
-            this.btnXe = new System.Windows.Forms.Button();
-            this.btnTicket = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.pnTitleBar = new System.Windows.Forms.Panel();
             this.tblTitle = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pnDeskTop = new System.Windows.Forms.Panel();
+            this.btnCloseChildForm = new System.Windows.Forms.Button();
+            this.btnCaiDat = new System.Windows.Forms.Button();
+            this.btnHuongDan = new System.Windows.Forms.Button();
+            this.btnTuyenXe = new System.Windows.Forms.Button();
+            this.btnXe = new System.Windows.Forms.Button();
+            this.btnTicket = new System.Windows.Forms.Button();
             this.panelMenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
             this.pnTitleBar.SuspendLayout();
@@ -57,8 +58,75 @@ namespace GUI
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(230, 668);
+            this.panelMenu.Size = new System.Drawing.Size(230, 751);
             this.panelMenu.TabIndex = 0;
+            // 
+            // panelLogo
+            // 
+            this.panelLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(58)))));
+            this.panelLogo.Controls.Add(this.label1);
+            this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelLogo.Location = new System.Drawing.Point(0, 0);
+            this.panelLogo.Name = "panelLogo";
+            this.panelLogo.Size = new System.Drawing.Size(230, 90);
+            this.panelLogo.TabIndex = 2;
+            // 
+            // pnTitleBar
+            // 
+            this.pnTitleBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            this.pnTitleBar.Controls.Add(this.btnCloseChildForm);
+            this.pnTitleBar.Controls.Add(this.tblTitle);
+            this.pnTitleBar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnTitleBar.Location = new System.Drawing.Point(230, 0);
+            this.pnTitleBar.Name = "pnTitleBar";
+            this.pnTitleBar.Size = new System.Drawing.Size(1157, 90);
+            this.pnTitleBar.TabIndex = 1;
+            this.pnTitleBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnTitleBar_MouseDown);
+            // 
+            // tblTitle
+            // 
+            this.tblTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tblTitle.AutoSize = true;
+            this.tblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tblTitle.ForeColor = System.Drawing.Color.White;
+            this.tblTitle.Location = new System.Drawing.Point(485, 31);
+            this.tblTitle.Name = "tblTitle";
+            this.tblTitle.Size = new System.Drawing.Size(177, 31);
+            this.tblTitle.TabIndex = 2;
+            this.tblTitle.Text = "TRANG CHỦ";
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(22, 31);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(173, 31);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "MyDu-Coach";
+            // 
+            // pnDeskTop
+            // 
+            this.pnDeskTop.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnDeskTop.Location = new System.Drawing.Point(230, 90);
+            this.pnDeskTop.Name = "pnDeskTop";
+            this.pnDeskTop.Size = new System.Drawing.Size(1157, 661);
+            this.pnDeskTop.TabIndex = 2;
+            this.pnDeskTop.Paint += new System.Windows.Forms.PaintEventHandler(this.pnDeskTop_Paint);
+            // 
+            // btnCloseChildForm
+            // 
+            this.btnCloseChildForm.FlatAppearance.BorderSize = 0;
+            this.btnCloseChildForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCloseChildForm.Image = global::GUI.Properties.Resources.exit;
+            this.btnCloseChildForm.Location = new System.Drawing.Point(6, 27);
+            this.btnCloseChildForm.Name = "btnCloseChildForm";
+            this.btnCloseChildForm.Size = new System.Drawing.Size(75, 50);
+            this.btnCloseChildForm.TabIndex = 0;
+            this.btnCloseChildForm.UseVisualStyleBackColor = true;
+            this.btnCloseChildForm.Click += new System.EventHandler(this.btnCloseChildForm_Click);
             // 
             // btnCaiDat
             // 
@@ -160,70 +228,19 @@ namespace GUI
             this.btnTicket.UseVisualStyleBackColor = false;
             this.btnTicket.Click += new System.EventHandler(this.btnTicket_Click);
             // 
-            // panelLogo
-            // 
-            this.panelLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(58)))));
-            this.panelLogo.Controls.Add(this.label1);
-            this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelLogo.Location = new System.Drawing.Point(0, 0);
-            this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(230, 90);
-            this.panelLogo.TabIndex = 2;
-            // 
-            // pnTitleBar
-            // 
-            this.pnTitleBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
-            this.pnTitleBar.Controls.Add(this.tblTitle);
-            this.pnTitleBar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnTitleBar.Location = new System.Drawing.Point(230, 0);
-            this.pnTitleBar.Name = "pnTitleBar";
-            this.pnTitleBar.Size = new System.Drawing.Size(923, 90);
-            this.pnTitleBar.TabIndex = 1;
-            // 
-            // tblTitle
-            // 
-            this.tblTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tblTitle.AutoSize = true;
-            this.tblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tblTitle.ForeColor = System.Drawing.Color.White;
-            this.tblTitle.Location = new System.Drawing.Point(368, 31);
-            this.tblTitle.Name = "tblTitle";
-            this.tblTitle.Size = new System.Drawing.Size(177, 31);
-            this.tblTitle.TabIndex = 2;
-            this.tblTitle.Text = "TRANG CHỦ";
-            // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(22, 31);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(173, 31);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "MyDu-Coach";
-            // 
-            // pnDeskTop
-            // 
-            this.pnDeskTop.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnDeskTop.Location = new System.Drawing.Point(230, 90);
-            this.pnDeskTop.Name = "pnDeskTop";
-            this.pnDeskTop.Size = new System.Drawing.Size(923, 578);
-            this.pnDeskTop.TabIndex = 2;
-            this.pnDeskTop.Paint += new System.Windows.Forms.PaintEventHandler(this.pnDeskTop_Paint);
-            // 
             // fManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1153, 668);
+            this.ClientSize = new System.Drawing.Size(1387, 751);
             this.Controls.Add(this.pnDeskTop);
             this.Controls.Add(this.pnTitleBar);
             this.Controls.Add(this.panelMenu);
+            this.MinimumSize = new System.Drawing.Size(950, 500);
             this.Name = "fManagement";
             this.Text = "fManagement";
             this.Load += new System.EventHandler(this.fManagement_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.fManagement_MouseDown);
             this.panelMenu.ResumeLayout(false);
             this.panelLogo.ResumeLayout(false);
             this.panelLogo.PerformLayout();
@@ -246,5 +263,6 @@ namespace GUI
         private System.Windows.Forms.Label tblTitle;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel pnDeskTop;
+        private System.Windows.Forms.Button btnCloseChildForm;
     }
 }
