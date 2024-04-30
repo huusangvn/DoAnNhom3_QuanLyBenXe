@@ -10,17 +10,11 @@ using DTO;
 using BUS;
 namespace GUI
 {
-    public partial class fTuyenXe : Form
+    public partial class frmTuyenXe : Form
     {
-        public fTuyenXe()
+        public frmTuyenXe()
         {
             InitializeComponent();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            HienThiTuyenXe();
-            LoadTheme();
         }
         private void LoadTheme()
         {
@@ -46,6 +40,12 @@ namespace GUI
             dtgvTuyenXe.Columns["DiaDiemDi1"].HeaderText = "Địa điểm đi";
             dtgvTuyenXe.Columns["DiaDiemDen1"].HeaderText = "Địa điểm đến";
             dtgvTuyenXe.Columns["Gia1"].HeaderText = "Giá";
+            dtgvTuyenXe.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        }
+        private void frmTuyenXe_Load(object sender, EventArgs e)
+        {
+            HienThiTuyenXe();
+            LoadTheme();
         }
 
         private void dtgvTuyenXe_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -59,14 +59,11 @@ namespace GUI
             txtGia.Text = r.Cells["Gia1"].Value.ToString();
         }
 
-    
-
-        private void btnThemTuyen_Click(object sender, EventArgs e)
+        private void btnThem_Click(object sender, EventArgs e)
         {
             if (txtIdTuyen.Text == "" || txtTenTuyen.Text == "" || txtDiaDiemDi.Text == "" || txtDiaDiemDen.Text == "")
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ dữ liệu!");
-
                 return;
             }
             // Kiểm tra mã tuyến có độ dài chuỗi hợp lệ hay không
@@ -100,9 +97,34 @@ namespace GUI
             }
         }
 
-        private void btnSuaTuyen_Click(object sender, EventArgs e)
+        private void btnXoa_Click(object sender, EventArgs e)
         {
             // kiểm tra mã có tồn tại
+            if (txtIdTuyen.Text == "" || TuyenXe_BUS.TimTuyenXeTheoMa(txtIdTuyen.Text) == null)
+            {
+                MessageBox.Show("Vui lòng chọn mã tuyến!");
+                return;
+            }
+            TuyenXe_DTO tx = new TuyenXe_DTO();
+            tx.IdTuyen1 = txtIdTuyen.Text;
+            tx.TenTuyen1 = txtTenTuyen.Text;
+            tx.DiaDiemDi1 = txtDiaDiemDi.Text;
+            tx.DiaDiemDen1 = txtDiaDiemDen.Text;
+            tx.Gia1 = Int32.Parse(txtGia.Text);
+
+            if (TuyenXe_BUS.XoaTuyenXe(tx) == true)
+            {
+                HienThiTuyenXe();
+                MessageBox.Show("Đã xóa tuyến xe.");
+            }
+            else
+            {
+                MessageBox.Show("Không xóa được.");
+            }
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
             if (txtIdTuyen.Text == "" || TuyenXe_BUS.TimTuyenXeTheoMa(txtIdTuyen.Text) == null)
             {
                 MessageBox.Show("Vui lòng chọn mã tuyến!");
@@ -125,72 +147,6 @@ namespace GUI
             {
                 MessageBox.Show("Không cập nhật được.");
             }
-        }
-
-        private void btnXoaTuyen_Click(object sender, EventArgs e)
-        {
-            // kiểm tra mã có tồn tại
-            if (txtIdTuyen.Text == "" || TuyenXe_BUS.TimTuyenXeTheoMa(txtIdTuyen.Text) == null)
-            {
-                MessageBox.Show("Vui lòng chọn mã tuyến!");
-                return;
-            }
-            TuyenXe_DTO tx = new TuyenXe_DTO();
-            tx.IdTuyen1 = txtIdTuyen.Text;
-            tx.TenTuyen1 = txtTenTuyen.Text;
-            tx.DiaDiemDi1 = txtDiaDiemDi.Text;
-            tx.DiaDiemDen1 = txtDiaDiemDen.Text;
-            tx.Gia1 = Int32.Parse(txtGia.Text);
-            
-            if (TuyenXe_BUS.XoaTuyenXe(tx) == true)
-            {
-                HienThiTuyenXe();
-                MessageBox.Show("Đã xóa tuyến xe.");
-            }
-            else
-            {
-                MessageBox.Show("Không xóa được.");
-            }
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtTenTuyen_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtGia_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtDiaDiemDi_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtDiaDiemDen_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

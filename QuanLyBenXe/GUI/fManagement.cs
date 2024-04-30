@@ -115,7 +115,7 @@ namespace GUI
         }
         private void btnTuyenXe_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new fTuyenXe(), sender);
+            OpenChildForm(new frmTuyenXe(), sender);
         }
 
         private void btnHuongDan_Click(object sender, EventArgs e)

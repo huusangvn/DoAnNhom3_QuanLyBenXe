@@ -31,9 +31,9 @@ namespace GUI
         {
             this.panelMenu = new System.Windows.Forms.Panel();
             this.panelLogo = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.pnTitleBar = new System.Windows.Forms.Panel();
             this.tblTitle = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.pnDeskTop = new System.Windows.Forms.Panel();
             this.btnCloseChildForm = new System.Windows.Forms.Button();
             this.btnCaiDat = new System.Windows.Forms.Button();
@@ -71,6 +71,18 @@ namespace GUI
             this.panelLogo.Size = new System.Drawing.Size(230, 90);
             this.panelLogo.TabIndex = 2;
             // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(8, 31);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(216, 31);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "INDIAN-COACH";
+            // 
             // pnTitleBar
             // 
             this.pnTitleBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
@@ -94,18 +106,6 @@ namespace GUI
             this.tblTitle.Size = new System.Drawing.Size(177, 31);
             this.tblTitle.TabIndex = 2;
             this.tblTitle.Text = "TRANG CHỦ";
-            // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(22, 31);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(173, 31);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "MyDu-Coach";
             // 
             // pnDeskTop
             // 
@@ -175,7 +175,7 @@ namespace GUI
             this.btnTuyenXe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTuyenXe.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTuyenXe.ForeColor = System.Drawing.SystemColors.InactiveBorder;
-            this.btnTuyenXe.Image = global::GUI.Properties.Resources.Map;
+            this.btnTuyenXe.Image = global::GUI.Properties.Resources.Map1;
             this.btnTuyenXe.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnTuyenXe.Location = new System.Drawing.Point(0, 250);
             this.btnTuyenXe.Name = "btnTuyenXe";
@@ -238,6 +238,7 @@ namespace GUI
             this.Controls.Add(this.panelMenu);
             this.MinimumSize = new System.Drawing.Size(950, 500);
             this.Name = "fManagement";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fManagement";
             this.Load += new System.EventHandler(this.fManagement_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.fManagement_MouseDown);

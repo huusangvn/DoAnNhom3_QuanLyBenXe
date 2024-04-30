@@ -113,6 +113,16 @@ namespace GUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Map1 {
+            get {
+                object obj = ResourceManager.GetObject("Map1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap pngtree_vector_location_icon_png_image_855078 {
             get {
                 object obj = ResourceManager.GetObject("pngtree-vector-location-icon-png-image_855078", resourceCulture);
@@ -196,6 +206,16 @@ namespace GUI.Properties {
         internal static System.Drawing.Bitmap z5396476041516_8dbbb76aec2dca41db0ed2cc056b1869 {
             get {
                 object obj = ResourceManager.GetObject("z5396476041516_8dbbb76aec2dca41db0ed2cc056b1869", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap z5397147692293_38cab68989685e0d654e08508272f058 {
+            get {
+                object obj = ResourceManager.GetObject("z5397147692293_38cab68989685e0d654e08508272f058", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
