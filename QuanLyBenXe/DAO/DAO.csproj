@@ -42,8 +42,10 @@
     <Compile Include="BanVe_DAO.cs" />
     <Compile Include="ChuyenXe_DAO.cs" />
     <Compile Include="DataProvider.cs" />
+    <Compile Include="DataProvider2.cs" />
     <Compile Include="NguoiDung_DAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="AccountDAO.cs" />
     <Compile Include="TuyenXe_DAO.cs" />
     <Compile Include="Xe_DAO.cs" />
   </ItemGroup>

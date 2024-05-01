@@ -7,7 +7,8 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
-
+using DTO;
+using BUS;
 namespace GUI
 {
     public partial class fManagement : Form
@@ -17,6 +18,56 @@ namespace GUI
         private Random random;
         private int tempIndex;
         private Form activeForm;
+
+        public bool bDangNhap; // true: đăng nhập thành công, false: chưa đăng nhập
+
+        public TaiKhoan_DTO TaiKhoan;
+
+        private void HienThiMenu()
+        {/*
+            iDangNhap.Enabled = !bDangNhap;
+            iDangXuat.Enabled = bDangNhap;
+            iDanhMuc.Enabled = bDangNhap;
+            iNghiepVu.Enabled = bDangNhap;*/
+            // tương tự cho các menu còn lại
+
+
+            if (bDangNhap == true)
+            {
+               /* txtNguoiDung.Text = "Người dùng: " + NguoiDung.Ten;
+                txtThoiDiemDangNhap.Text = "Thời điểm đăng nhập: " + DateTime.Now;*/
+                // Hiển thị menu theo quyền, ví dụ:
+                // 1. quantri: sử dụng tất cả menu
+                // 2. nhanvien: không sử dụng các menu: Danh mục, Nghiệp vụ
+                string iQuyen;
+                if (TaiKhoan == null)
+                {
+                    iQuyen = "Nhan_Vien";
+                }
+                else
+                {
+                    iQuyen = TaiKhoan.IdLoaiND1.ToString();
+                }
+                switch (iQuyen)
+                {
+                    case "Nhan_Vien": // SV tự bổ sung
+                  /*      iDanhMuc.Enabled = bDangNhap;
+                        iNghiepVu.Enabled = bDangNhap*/;
+                        break;
+                    case "Quan_Ly": // SV tự bổ sung
+                    /*    iDanhMuc.Enabled = !bDangNhap;
+                        iNghiepVu.Enabled = !bDangNhap;*/
+                        break;
+                    default:
+                        break;
+                }
+            }
+            else
+            {
+               /* txtNguoiDung.Text = "Chưa đăng nhập";
+                txtThoiDiemDangNhap.Text = ""*/;
+            }
+        }
         public fManagement()
         {
             InitializeComponent();
@@ -164,6 +215,28 @@ namespace GUI
         private void btnDangXuat_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnDangNhap_Click(object sender, EventArgs e)
+        {
+            frmDangNhap f = new frmDangNhap();
+            if (f.ShowDialog() == DialogResult.OK)
+            {
+                string sTen = f.txtTaiKhoan.Text;
+                string sMatKhau = f.txtMatKhau.Text;
+                TaiKhoan = new TaiKhoan_DTO();
+                TaiKhoan = TaiKhoan_BUS.LayTaiKhoan(sTen, sMatKhau);
+                if (TaiKhoan != null)
+                {
+                    bDangNhap = true;
+                }
+            }
+            else
+            {
+                bDangNhap = false;
+                MessageBox.Show("Đăng nhập thất bại!!");
+            }
+
         }
     }
 }

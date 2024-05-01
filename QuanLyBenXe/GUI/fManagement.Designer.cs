@@ -35,13 +35,14 @@ namespace GUI
             this.pnTitleBar = new System.Windows.Forms.Panel();
             this.tblTitle = new System.Windows.Forms.Label();
             this.pnDeskTop = new System.Windows.Forms.Panel();
+            this.btnDangXuat = new System.Windows.Forms.Button();
             this.btnCloseChildForm = new System.Windows.Forms.Button();
             this.btnCaiDat = new System.Windows.Forms.Button();
             this.btnHuongDan = new System.Windows.Forms.Button();
             this.btnTuyenXe = new System.Windows.Forms.Button();
             this.btnXe = new System.Windows.Forms.Button();
             this.btnTicket = new System.Windows.Forms.Button();
-            this.btnDangXuat = new System.Windows.Forms.Button();
+            this.btnDangNhap = new System.Windows.Forms.Button();
             this.panelMenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
             this.pnTitleBar.SuspendLayout();
@@ -50,6 +51,7 @@ namespace GUI
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.Gray;
+            this.panelMenu.Controls.Add(this.btnDangNhap);
             this.panelMenu.Controls.Add(this.btnDangXuat);
             this.panelMenu.Controls.Add(this.btnCaiDat);
             this.panelMenu.Controls.Add(this.btnHuongDan);
@@ -117,6 +119,17 @@ namespace GUI
             this.pnDeskTop.Size = new System.Drawing.Size(1157, 661);
             this.pnDeskTop.TabIndex = 2;
             this.pnDeskTop.Paint += new System.Windows.Forms.PaintEventHandler(this.pnDeskTop_Paint);
+            // 
+            // btnDangXuat
+            // 
+            this.btnDangXuat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDangXuat.ForeColor = System.Drawing.Color.Blue;
+            this.btnDangXuat.Location = new System.Drawing.Point(12, 701);
+            this.btnDangXuat.Name = "btnDangXuat";
+            this.btnDangXuat.Size = new System.Drawing.Size(200, 38);
+            this.btnDangXuat.TabIndex = 0;
+            this.btnDangXuat.Text = "Đăng Xuất";
+            this.btnDangXuat.UseVisualStyleBackColor = true;
             // 
             // btnCloseChildForm
             // 
@@ -230,17 +243,15 @@ namespace GUI
             this.btnTicket.UseVisualStyleBackColor = false;
             this.btnTicket.Click += new System.EventHandler(this.btnTicket_Click);
             // 
-            // btnDangXuat
+            // btnDangNhap
             // 
-            this.btnDangXuat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDangXuat.ForeColor = System.Drawing.Color.Blue;
-            this.btnDangXuat.Location = new System.Drawing.Point(12, 701);
-            this.btnDangXuat.Name = "btnDangXuat";
-            this.btnDangXuat.Size = new System.Drawing.Size(200, 38);
-            this.btnDangXuat.TabIndex = 0;
-            this.btnDangXuat.Text = "Đăng Xuất";
-            this.btnDangXuat.UseVisualStyleBackColor = true;
-            this.btnDangXuat.Click += new System.EventHandler(this.btnDangXuat_Click);
+            this.btnDangNhap.Location = new System.Drawing.Point(12, 634);
+            this.btnDangNhap.Name = "btnDangNhap";
+            this.btnDangNhap.Size = new System.Drawing.Size(200, 51);
+            this.btnDangNhap.TabIndex = 0;
+            this.btnDangNhap.Text = "Đăng Nhập";
+            this.btnDangNhap.UseVisualStyleBackColor = true;
+            this.btnDangNhap.Click += new System.EventHandler(this.btnDangNhap_Click);
             // 
             // fManagement
             // 
@@ -280,5 +291,6 @@ namespace GUI
         private System.Windows.Forms.Panel pnDeskTop;
         private System.Windows.Forms.Button btnCloseChildForm;
         private System.Windows.Forms.Button btnDangXuat;
+        private System.Windows.Forms.Button btnDangNhap;
     }
 }

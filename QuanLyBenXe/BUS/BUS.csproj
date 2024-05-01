@@ -43,6 +43,7 @@
     <Compile Include="ChuyenXe_BUS.cs" />
     <Compile Include="NguoiDung_BUS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TaiKhoan_BUS.cs" />
     <Compile Include="TuyenXe_BUS.cs" />
     <Compile Include="Xe_BUS.cs" />
   </ItemGroup>
