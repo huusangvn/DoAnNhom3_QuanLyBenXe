@@ -9,10 +9,10 @@ namespace DTO
     {
         private string IdNguoiDung;
         private string PassND;
-        private int IdLoaiND;
+        private string IdLoaiND;
 
         public string IdNguoiDung1 { get => IdNguoiDung; set => IdNguoiDung = value; }
         public string PassND1 { get => PassND; set => PassND = value; }
-        public int IdLoaiND1 { get => IdLoaiND; set => IdLoaiND = value; }
+        public string IdLoaiND1 { get => IdLoaiND; set => IdLoaiND = value; }
     }
 }

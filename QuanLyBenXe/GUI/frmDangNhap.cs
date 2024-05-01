@@ -22,22 +22,6 @@ namespace GUI
 
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
-            /*  string sTen = txtTaiKhoan.Text;
-              string sMatKhau = txtMatKhau.Text;
-              TaiKhoan_DTO TaiKhoan = new TaiKhoan_DTO();
-              TaiKhoan = TaiKhoan_BUS.LayTaiKhoan(sTen, sMatKhau);
-              if (TaiKhoan != null)
-              {
-                  fManagement f = new fManagement();
-                  this.Hide();
-                  f.ShowDialog();
-                  this.Show();
-              }
-              else
-              {
-                  MessageBox.Show("Đăng nhập thất bại!!");
-              }*/
-
             string sTruyVan = @"Data Source=ADMIN\MSSQLSEVER;Initial Catalog=QuanLyBenXe;Integrated Security=True";
             SqlConnection conn = new SqlConnection(sTruyVan);
             try
@@ -80,7 +64,7 @@ namespace GUI
 
         private void frmDangNhap_Load(object sender, EventArgs e)
         {
-
+            txtTaiKhoan.Focus();
         }
     }
 }

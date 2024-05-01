@@ -77,7 +77,7 @@ namespace GUI
             this.txtMatKhau.Multiline = true;
             this.txtMatKhau.Name = "txtMatKhau";
             this.txtMatKhau.Size = new System.Drawing.Size(277, 36);
-            this.txtMatKhau.TabIndex = 3;
+            this.txtMatKhau.TabIndex = 2;
             // 
             // btnDangNhap
             // 
@@ -85,7 +85,7 @@ namespace GUI
             this.btnDangNhap.Location = new System.Drawing.Point(933, 420);
             this.btnDangNhap.Name = "btnDangNhap";
             this.btnDangNhap.Size = new System.Drawing.Size(231, 40);
-            this.btnDangNhap.TabIndex = 4;
+            this.btnDangNhap.TabIndex = 3;
             this.btnDangNhap.Text = "Đăng Nhập";
             this.btnDangNhap.UseVisualStyleBackColor = true;
             this.btnDangNhap.Click += new System.EventHandler(this.btnDangNhap_Click);
@@ -103,6 +103,7 @@ namespace GUI
             // 
             // btnThoat
             // 
+            this.btnThoat.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnThoat.FlatAppearance.BorderSize = 0;
             this.btnThoat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnThoat.Image = global::GUI.Properties.Resources.exit1;
@@ -131,12 +132,14 @@ namespace GUI
             this.txtTaiKhoan.Multiline = true;
             this.txtTaiKhoan.Name = "txtTaiKhoan";
             this.txtTaiKhoan.Size = new System.Drawing.Size(281, 32);
-            this.txtTaiKhoan.TabIndex = 6;
+            this.txtTaiKhoan.TabIndex = 1;
             // 
             // frmDangNhap
             // 
+            this.AcceptButton = this.btnDangNhap;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnThoat;
             this.ClientSize = new System.Drawing.Size(1303, 659);
             this.Controls.Add(this.txtTaiKhoan);
             this.Controls.Add(this.btnThoat);

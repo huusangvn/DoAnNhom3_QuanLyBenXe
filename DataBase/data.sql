@@ -487,3 +487,4 @@ FROM
     INNER JOIN ChuyenXe cx ON bv.IdChuyen = cx.IdChuyen
     INNER JOIN ChoNgoi cn ON cn.IdChuyen = cx.IdChuyen AND cn.So_Xe = cx.So_Xe
 
+

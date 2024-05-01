@@ -31,7 +31,6 @@ namespace GUI
         {
             this.panelMenu = new System.Windows.Forms.Panel();
             this.btnCaiDat = new System.Windows.Forms.Button();
-            this.btnDangNhap = new System.Windows.Forms.Button();
             this.btnDangXuat = new System.Windows.Forms.Button();
             this.btnNhanVien = new System.Windows.Forms.Button();
             this.btnHuongDan = new System.Windows.Forms.Button();
@@ -53,7 +52,6 @@ namespace GUI
             // 
             this.panelMenu.BackColor = System.Drawing.Color.Gray;
             this.panelMenu.Controls.Add(this.btnCaiDat);
-            this.panelMenu.Controls.Add(this.btnDangNhap);
             this.panelMenu.Controls.Add(this.btnDangXuat);
             this.panelMenu.Controls.Add(this.btnNhanVien);
             this.panelMenu.Controls.Add(this.btnHuongDan);
@@ -87,16 +85,6 @@ namespace GUI
             this.btnCaiDat.UseVisualStyleBackColor = false;
             this.btnCaiDat.Click += new System.EventHandler(this.btnCaiDat_Click_1);
             // 
-            // btnDangNhap
-            // 
-            this.btnDangNhap.Location = new System.Drawing.Point(12, 634);
-            this.btnDangNhap.Name = "btnDangNhap";
-            this.btnDangNhap.Size = new System.Drawing.Size(200, 51);
-            this.btnDangNhap.TabIndex = 0;
-            this.btnDangNhap.Text = "Đăng Nhập";
-            this.btnDangNhap.UseVisualStyleBackColor = true;
-            this.btnDangNhap.Click += new System.EventHandler(this.btnDangNhap_Click);
-            // 
             // btnDangXuat
             // 
             this.btnDangXuat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -107,6 +95,7 @@ namespace GUI
             this.btnDangXuat.TabIndex = 0;
             this.btnDangXuat.Text = "Đăng Xuất";
             this.btnDangXuat.UseVisualStyleBackColor = true;
+            this.btnDangXuat.Click += new System.EventHandler(this.btnDangXuat_Click_1);
             // 
             // btnNhanVien
             // 
@@ -313,7 +302,6 @@ namespace GUI
         private System.Windows.Forms.Panel pnDeskTop;
         private System.Windows.Forms.Button btnCloseChildForm;
         private System.Windows.Forms.Button btnDangXuat;
-        private System.Windows.Forms.Button btnDangNhap;
         private System.Windows.Forms.Button btnCaiDat;
     }
 }

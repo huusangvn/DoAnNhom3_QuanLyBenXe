@@ -19,56 +19,55 @@ namespace GUI
         private int tempIndex;
         private Form activeForm;
 
-        public bool bDangNhap; // true: đăng nhập thành công, false: chưa đăng nhập
+       
 
-        public TaiKhoan_DTO TaiKhoan;
+        public TaiKhoan_DTO NguoiDung;
 
         private void HienThiMenu()
         {/*
+        
             iDangNhap.Enabled = !bDangNhap;
             iDangXuat.Enabled = bDangNhap;
             iDanhMuc.Enabled = bDangNhap;
             iNghiepVu.Enabled = bDangNhap;*/
             // tương tự cho các menu còn lại
-            btnDangNhap.Visible = !bDangNhap;
-            btnDangXuat.Visible = bDangNhap;
-            if (bDangNhap == true)
-            {
-               /* txtNguoiDung.Text = "Người dùng: " + NguoiDung.Ten;
-                txtThoiDiemDangNhap.Text = "Thời điểm đăng nhập: " + DateTime.Now;*/
-                // Hiển thị menu theo quyền, ví dụ:
-                // 1. quantri: sử dụng tất cả menu
-                // 2. nhanvien: không sử dụng các menu: Danh mục, Nghiệp vụ
-                int iQuyen;
-                if (TaiKhoan == null)
+
+         
+          
+                string iQuyen;
+                if (NguoiDung == null)
                 {
-                    iQuyen = 0;
+                    iQuyen = "";
                 }
                 else
                 {
-                    iQuyen = int.Parse(TaiKhoan.IdLoaiND1.ToString());
+                    iQuyen = NguoiDung.IdLoaiND1.ToString();
                 }
                 switch (iQuyen)
                 {
-                    case 1: // SV tự bổ sung
-                        btnTuyenXe.Visible = bDangNhap;
-                        btnXe.Visible = bDangNhap;
+                    case "Admin": // SV tự bổ sung
+                        btnTicket.Visible = false;
+                        btnXe.Visible = false;
+                        btnTuyenXe.Visible = false;
+                        btnHuongDan.Visible = false;
+                        btnCaiDat.Visible = false;
                         break;
-                    case 2: // SV tự bổ sung
-                        btnTicket.Visible = !bDangNhap;
-                        btnTuyenXe.Visible = !bDangNhap;
-                        btnXe.Visible = !bDangNhap;
+                    case "Quan_Ly": // SV tự bổ sung
+                        btnTicket.Visible = false;
+                        btnTuyenXe.Visible = false;
+                        btnXe.Visible = false;
                         break;
-                    default:
-                        break;
+                default:
+                    btnTicket.Visible = true;
+                    btnXe.Visible = true;
+                    btnTuyenXe.Visible = true;
+                    btnHuongDan.Visible = true;
+                    btnCaiDat.Visible = true;
+                    break;
                 }
             }
-            else
-            {
-               /* txtNguoiDung.Text = "Chưa đăng nhập";
-                txtThoiDiemDangNhap.Text = ""*/;
-            }
-        }
+          
+
         public fManagement()
         {
             InitializeComponent();
@@ -217,43 +216,8 @@ namespace GUI
 
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
-            /* frmDangNhap f = new frmDangNhap();
-             if (f.ShowDialog() == DialogResult.OK)
-             {
-                 string sTen = f.txtTaiKhoan.Text;
-                 string sMatKhau = f.txtMatKhau.Text;
-                 TaiKhoan = new TaiKhoan_DTO();
-                 TaiKhoan = TaiKhoan_BUS.LayTaiKhoan(sTen, sMatKhau);
-                 if (TaiKhoan != null)
-                 {
-                     bDangNhap = true;
-                 }
-             }
-             else
-             {
-                 bDangNhap = false;
-                 MessageBox.Show("Đăng nhập thất bại!!");
-             }
- */
-           frmDangNhap fDN = new frmDangNhap();
-            if (fDN.ShowDialog() == DialogResult.OK)
-            {
-                string sTen = fDN.txtTaiKhoan.Text;
-                string sMatKhau = fDN.txtMatKhau.Text;
-
-                TaiKhoan = new TaiKhoan_DTO();
-                TaiKhoan = TaiKhoan_BUS.LayTaiKhoan(sTen, sMatKhau);
-                if (TaiKhoan != null)
-                {
-                    bDangNhap = true;
-                }
-
-            }
-            else
-            {
-                bDangNhap = false;
-            }
-            HienThiMenu();
+            
+           
         }
 
         private void btnCaiDat_Click_1(object sender, EventArgs e)
@@ -264,6 +228,14 @@ namespace GUI
         private void btnNhanVien_Click(object sender, EventArgs e)
         {
             OpenChildForm(new frmNguoiDung(), sender);
+        }
+
+        private void btnDangXuat_Click_1(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmDangNhap f = new frmDangNhap();
+            f.ShowDialog();
+            this.Show();
         }
     }
 }
