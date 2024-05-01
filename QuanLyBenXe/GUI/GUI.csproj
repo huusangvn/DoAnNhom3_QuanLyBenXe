@@ -55,17 +55,29 @@
     <Compile Include="fManagement.Designer.cs">
       <DependentUpon>fManagement.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmChiTietTuyen.cs">
+    <Compile Include="frmDangNhap.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmChiTietTuyen.Designer.cs">
-      <DependentUpon>frmChiTietTuyen.cs</DependentUpon>
+    <Compile Include="frmDangNhap.Designer.cs">
+      <DependentUpon>frmDangNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmNguoiDung.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNguoiDung.Designer.cs">
+      <DependentUpon>frmNguoiDung.cs</DependentUpon>
     </Compile>
     <Compile Include="frmTuyenXe.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmTuyenXe.Designer.cs">
       <DependentUpon>frmTuyenXe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmXe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmXe.Designer.cs">
+      <DependentUpon>frmXe.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -76,11 +88,17 @@
     <EmbeddedResource Include="fManagement.resx">
       <DependentUpon>fManagement.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmChiTietTuyen.resx">
-      <DependentUpon>frmChiTietTuyen.cs</DependentUpon>
+    <EmbeddedResource Include="frmDangNhap.resx">
+      <DependentUpon>frmDangNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNguoiDung.resx">
+      <DependentUpon>frmNguoiDung.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTuyenXe.resx">
       <DependentUpon>frmTuyenXe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmXe.resx">
+      <DependentUpon>frmXe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -159,6 +177,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Map1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Hinh-anh-co-lien-quan-2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bg-login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

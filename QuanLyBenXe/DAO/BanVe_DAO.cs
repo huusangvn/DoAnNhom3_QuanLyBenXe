@@ -29,6 +29,7 @@ namespace DAO
                 bv.SDTHanhKhach1 = (int)dt.Rows[i]["SDTHanhKhach"];
 
                 bv.TenTuyen1 = dt.Rows[i]["TenTuyen"].ToString();
+                bv.Gia1 = (int)dt.Rows[i]["Gia"];
                 bv.NgayDi1 = (DateTime)dt.Rows[i]["NgayDi"];
                 bv.Gio1 = dt.Rows[i]["Gio"].ToString();
                 bv.So_Xe1 = dt.Rows[i]["So_Xe"].ToString();

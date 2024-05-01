@@ -41,6 +41,7 @@ namespace GUI
             this.btnTuyenXe = new System.Windows.Forms.Button();
             this.btnXe = new System.Windows.Forms.Button();
             this.btnTicket = new System.Windows.Forms.Button();
+            this.btnDangXuat = new System.Windows.Forms.Button();
             this.panelMenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
             this.pnTitleBar.SuspendLayout();
@@ -49,6 +50,7 @@ namespace GUI
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.Gray;
+            this.panelMenu.Controls.Add(this.btnDangXuat);
             this.panelMenu.Controls.Add(this.btnCaiDat);
             this.panelMenu.Controls.Add(this.btnHuongDan);
             this.panelMenu.Controls.Add(this.btnTuyenXe);
@@ -228,6 +230,18 @@ namespace GUI
             this.btnTicket.UseVisualStyleBackColor = false;
             this.btnTicket.Click += new System.EventHandler(this.btnTicket_Click);
             // 
+            // btnDangXuat
+            // 
+            this.btnDangXuat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDangXuat.ForeColor = System.Drawing.Color.Blue;
+            this.btnDangXuat.Location = new System.Drawing.Point(12, 701);
+            this.btnDangXuat.Name = "btnDangXuat";
+            this.btnDangXuat.Size = new System.Drawing.Size(200, 38);
+            this.btnDangXuat.TabIndex = 0;
+            this.btnDangXuat.Text = "Đăng Xuất";
+            this.btnDangXuat.UseVisualStyleBackColor = true;
+            this.btnDangXuat.Click += new System.EventHandler(this.btnDangXuat_Click);
+            // 
             // fManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -265,5 +279,6 @@ namespace GUI
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel pnDeskTop;
         private System.Windows.Forms.Button btnCloseChildForm;
+        private System.Windows.Forms.Button btnDangXuat;
     }
 }

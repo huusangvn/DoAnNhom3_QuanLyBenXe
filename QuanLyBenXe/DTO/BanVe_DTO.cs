@@ -18,11 +18,13 @@ namespace DTO
         public DateTime? NgayDi1 { get => NgayDi; set => NgayDi = value; }
         public string Gio1 { get => Gio; set => Gio = value; }
         public string So_Xe1 { get => So_Xe; set => So_Xe = value; }
+        public int Gia1 { get => Gia; set => Gia = value; }
 
         private string TenTuyen;
         private DateTime? NgayDi;
         private string Gio;
         private string So_Xe;
+        private int Gia;
 
     }
 }

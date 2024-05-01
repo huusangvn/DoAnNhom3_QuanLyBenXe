@@ -38,6 +38,7 @@ namespace GUI
 
         private void fManagement_Load(object sender, EventArgs e)
         {
+       
         }
 
         //Methods
@@ -111,7 +112,7 @@ namespace GUI
 
         private void btnXe_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender);
+            OpenChildForm(new frmXe(), sender);
         }
         private void btnTuyenXe_Click(object sender, EventArgs e)
         {
@@ -158,6 +159,11 @@ namespace GUI
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void btnDangXuat_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
