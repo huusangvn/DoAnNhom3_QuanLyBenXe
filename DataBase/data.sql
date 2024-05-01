@@ -468,7 +468,7 @@ Insert into PhanQuyen values('mytien', 0, 1, 0, 1, 1)
 --select * from NguoiDung
 --select count(*) from ChiTietTuyen
 select *from TuyenXe
-select *from TuyenXe
+
 
 select cx.*, tx.* from ChuyenXe cx,TuyenXe tx where cx.IdTuyen = tx.IdTuyen
 select *from ChuyenXe,TuyenXe where ChuyenXe.IdTuyen = TuyenXe.IdTuyen

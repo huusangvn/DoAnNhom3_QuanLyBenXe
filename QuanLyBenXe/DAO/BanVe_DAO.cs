@@ -13,7 +13,7 @@ namespace DAO
         static SqlConnection conn;
         public static List<BanVe_DTO> LayVe()
         {
-            string sTruyVan = @"select * from ChoNgoi,ChuyenXe, BanVe,TuyenXe where ChuyenXe.IdChuyen = BanVe.IdChuyen and ChuyenXe.IdTuyen = TuyenXe.IdTuyen";
+            string sTruyVan = @"select * from ChuyenXe, BanVe,TuyenXe where ChuyenXe.IdChuyen = BanVe.IdChuyen and ChuyenXe.IdTuyen = TuyenXe.IdTuyen";
             conn = DataProvider.Connect();
             DataTable dt = DataProvider.TruyVanLayDuLieu(sTruyVan, conn);
             if (dt.Rows.Count == 0)

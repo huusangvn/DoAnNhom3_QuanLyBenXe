@@ -30,8 +30,8 @@ namespace GUI
             iDanhMuc.Enabled = bDangNhap;
             iNghiepVu.Enabled = bDangNhap;*/
             // tương tự cho các menu còn lại
-
-
+            btnDangNhap.Visible = !bDangNhap;
+            btnDangXuat.Visible = bDangNhap;
             if (bDangNhap == true)
             {
                /* txtNguoiDung.Text = "Người dùng: " + NguoiDung.Ten;
@@ -39,24 +39,25 @@ namespace GUI
                 // Hiển thị menu theo quyền, ví dụ:
                 // 1. quantri: sử dụng tất cả menu
                 // 2. nhanvien: không sử dụng các menu: Danh mục, Nghiệp vụ
-                string iQuyen;
+                int iQuyen;
                 if (TaiKhoan == null)
                 {
-                    iQuyen = "Nhan_Vien";
+                    iQuyen = 0;
                 }
                 else
                 {
-                    iQuyen = TaiKhoan.IdLoaiND1.ToString();
+                    iQuyen = int.Parse(TaiKhoan.IdLoaiND1.ToString());
                 }
                 switch (iQuyen)
                 {
-                    case "Nhan_Vien": // SV tự bổ sung
-                  /*      iDanhMuc.Enabled = bDangNhap;
-                        iNghiepVu.Enabled = bDangNhap*/;
+                    case 1: // SV tự bổ sung
+                        btnTuyenXe.Visible = bDangNhap;
+                        btnXe.Visible = bDangNhap;
                         break;
-                    case "Quan_Ly": // SV tự bổ sung
-                    /*    iDanhMuc.Enabled = !bDangNhap;
-                        iNghiepVu.Enabled = !bDangNhap;*/
+                    case 2: // SV tự bổ sung
+                        btnTicket.Visible = !bDangNhap;
+                        btnTuyenXe.Visible = !bDangNhap;
+                        btnXe.Visible = !bDangNhap;
                         break;
                     default:
                         break;
@@ -89,7 +90,7 @@ namespace GUI
 
         private void fManagement_Load(object sender, EventArgs e)
         {
-       
+            HienThiMenu();
         }
 
         //Methods
@@ -175,10 +176,7 @@ namespace GUI
             ActivateButton(sender);
         }
 
-        private void btnCaiDat_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender);
-        }
+       
 
         private void pnDeskTop_Paint(object sender, PaintEventArgs e)
         {
@@ -219,24 +217,53 @@ namespace GUI
 
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
-            frmDangNhap f = new frmDangNhap();
-            if (f.ShowDialog() == DialogResult.OK)
+            /* frmDangNhap f = new frmDangNhap();
+             if (f.ShowDialog() == DialogResult.OK)
+             {
+                 string sTen = f.txtTaiKhoan.Text;
+                 string sMatKhau = f.txtMatKhau.Text;
+                 TaiKhoan = new TaiKhoan_DTO();
+                 TaiKhoan = TaiKhoan_BUS.LayTaiKhoan(sTen, sMatKhau);
+                 if (TaiKhoan != null)
+                 {
+                     bDangNhap = true;
+                 }
+             }
+             else
+             {
+                 bDangNhap = false;
+                 MessageBox.Show("Đăng nhập thất bại!!");
+             }
+ */
+           frmDangNhap fDN = new frmDangNhap();
+            if (fDN.ShowDialog() == DialogResult.OK)
             {
-                string sTen = f.txtTaiKhoan.Text;
-                string sMatKhau = f.txtMatKhau.Text;
+                string sTen = fDN.txtTaiKhoan.Text;
+                string sMatKhau = fDN.txtMatKhau.Text;
+
                 TaiKhoan = new TaiKhoan_DTO();
                 TaiKhoan = TaiKhoan_BUS.LayTaiKhoan(sTen, sMatKhau);
                 if (TaiKhoan != null)
                 {
                     bDangNhap = true;
                 }
+
             }
             else
             {
                 bDangNhap = false;
-                MessageBox.Show("Đăng nhập thất bại!!");
             }
+            HienThiMenu();
+        }
 
+        private void btnCaiDat_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnNhanVien_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new frmNguoiDung(), sender);
         }
     }
 }

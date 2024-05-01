@@ -7,11 +7,11 @@ namespace BUS
 {
    public class TaiKhoan_BUS
     {
-        public static TaiKhoan_DTO LayTaiKhoan(string ten, string matkhau)
+        public static DTO.TaiKhoan_DTO LayTaiKhoan(string ten, string matkhau)
         {
             MD5 md5Hash = MD5.Create();
             string matkhauMH = TaiKhoan_BUS.GetMd5Hash(md5Hash, matkhau);
-            return AccountDAO.LayTaiKhoan(ten, matkhauMH);
+            return DAO.TaiKhoan_DAO.LayTaiKhoan(ten, matkhauMH);
         }
         public static string GetMd5Hash(MD5 md5Hash, string input)
         {
