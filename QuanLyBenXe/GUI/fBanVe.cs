@@ -46,12 +46,6 @@ namespace GUI
             cbBienSoXe.DisplayMember = "So_Xe1";
             cbBienSoXe.ValueMember = "So_Xe1";
 
-            //Combobox Giờ Xuất Phát
-            List<ThoiDiem_DTO> lstThoiDiem = ThoiDiem_BUS.LayThoiDiem();
-            cbGioXuatPhat.DataSource = lstThoiDiem;
-            cbGioXuatPhat.DisplayMember = "Gio1";
-            cbGioXuatPhat.ValueMember = "Gio1";
-
             LoadTheme();
         }
         public void HienViVe()
@@ -85,7 +79,7 @@ namespace GUI
             txtSDT.Text = r.Cells["SDTHanhKhach1"].Value.ToString();
             cbBanVe.Text = r.Cells["TenTuyen1"].Value.ToString();
             dtNgayDi.Text = r.Cells["NgayDi1"].Value.ToString();
-            cbGioXuatPhat.Text = r.Cells["Gio1"].Value.ToString();
+            txtGioXuatPhat.Text = r.Cells["Gio1"].Value.ToString();
             cbBienSoXe.Text = r.Cells["So_Xe1"].Value.ToString();
             txtGia.Text = r.Cells["Gia1"].Value.ToString();
         }
@@ -97,7 +91,7 @@ namespace GUI
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            if (txtMaVe.Text == "" || txtHoTen.Text == "" || txtSDT.Text == "" || cbGioXuatPhat.Text == "" || txtGia.Text == "")
+            if (txtMaVe.Text == "" || txtHoTen.Text == "" || txtSDT.Text == "" || txtGioXuatPhat.Text == "" || txtGia.Text == "")
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ dữ liệu!");
                 return;
@@ -120,7 +114,7 @@ namespace GUI
             bv.SDTHanhKhach1 = Int32.Parse(txtSDT.Text);
             bv.TenTuyen1 = cbBanVe.Text;
             bv.NgayDi1 = DateTime.Parse(dtNgayDi.Text);
-            bv.Gio1 = cbGioXuatPhat.Text;
+            bv.Gio1 = txtGioXuatPhat.Text;
             bv.So_Xe1 = cbBienSoXe.Text;
             bv.Gia1 = Int32.Parse(txtGia.Text);
 
@@ -134,6 +128,11 @@ namespace GUI
                 HienViVe();
                 MessageBox.Show("Đã thêm vé xe.");
             }
+        }
+
+        private void cbBienSoXe_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

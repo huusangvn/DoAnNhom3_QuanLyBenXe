@@ -53,8 +53,8 @@ namespace GUI
             this.dtNgayDi = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.txtGia = new System.Windows.Forms.TextBox();
-            this.cbGioXuatPhat = new System.Windows.Forms.ComboBox();
             this.cbBienSoXe = new System.Windows.Forms.ComboBox();
+            this.txtGioXuatPhat = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvBanVe)).BeginInit();
             this.SuspendLayout();
             // 
@@ -291,14 +291,6 @@ namespace GUI
             this.txtGia.Size = new System.Drawing.Size(253, 30);
             this.txtGia.TabIndex = 40;
             // 
-            // cbGioXuatPhat
-            // 
-            this.cbGioXuatPhat.FormattingEnabled = true;
-            this.cbGioXuatPhat.Location = new System.Drawing.Point(194, 356);
-            this.cbGioXuatPhat.Name = "cbGioXuatPhat";
-            this.cbGioXuatPhat.Size = new System.Drawing.Size(253, 24);
-            this.cbGioXuatPhat.TabIndex = 41;
-            // 
             // cbBienSoXe
             // 
             this.cbBienSoXe.FormattingEnabled = true;
@@ -306,6 +298,15 @@ namespace GUI
             this.cbBienSoXe.Name = "cbBienSoXe";
             this.cbBienSoXe.Size = new System.Drawing.Size(253, 24);
             this.cbBienSoXe.TabIndex = 41;
+            this.cbBienSoXe.SelectedIndexChanged += new System.EventHandler(this.cbBienSoXe_SelectedIndexChanged);
+            // 
+            // txtGioXuatPhat
+            // 
+            this.txtGioXuatPhat.Location = new System.Drawing.Point(194, 349);
+            this.txtGioXuatPhat.Multiline = true;
+            this.txtGioXuatPhat.Name = "txtGioXuatPhat";
+            this.txtGioXuatPhat.Size = new System.Drawing.Size(253, 32);
+            this.txtGioXuatPhat.TabIndex = 5;
             // 
             // fBanVe
             // 
@@ -313,7 +314,6 @@ namespace GUI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1034, 651);
             this.Controls.Add(this.cbBienSoXe);
-            this.Controls.Add(this.cbGioXuatPhat);
             this.Controls.Add(this.txtGia);
             this.Controls.Add(this.dtNgayDi);
             this.Controls.Add(this.lbTen2);
@@ -323,6 +323,7 @@ namespace GUI
             this.Controls.Add(this.btnSua);
             this.Controls.Add(this.btnThem);
             this.Controls.Add(this.btnXoa);
+            this.Controls.Add(this.txtGioXuatPhat);
             this.Controls.Add(this.txtSDT);
             this.Controls.Add(this.txtHoTen);
             this.Controls.Add(this.txtMaVe);
@@ -357,7 +358,6 @@ namespace GUI
         private System.Windows.Forms.Label lbTen2;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ComboBox cbBanVe;
-        private System.Windows.Forms.ComboBox cbGioXuatPhat;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label blels;
         private System.Windows.Forms.Label label4;
@@ -372,5 +372,6 @@ namespace GUI
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtGia;
         private System.Windows.Forms.ComboBox cbBienSoXe;
+        private System.Windows.Forms.TextBox txtGioXuatPhat;
     }
 }

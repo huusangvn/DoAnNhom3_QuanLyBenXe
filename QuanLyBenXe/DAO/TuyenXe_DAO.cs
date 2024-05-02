@@ -39,7 +39,7 @@ namespace DAO
         //Tìm tuyến xe theo mã
         public static List<TuyenXe_DTO> TimTuyenXeTheoMa(string ma)
         {
-            string sTruyVan = string.Format(@"select * from TuyenXe where IdTuyen like '%{0}%'", ma);
+            string sTruyVan = string.Format(@"select * from TuyenXe where IdTuyen like '%{0}%' or TenTuyen = '%{0}%'", ma);
             conn = DataProvider.Connect();
             DataTable dt = DataProvider.TruyVanLayDuLieu(sTruyVan, conn);
             if (dt.Rows.Count == 0)

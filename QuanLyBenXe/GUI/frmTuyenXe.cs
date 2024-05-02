@@ -44,8 +44,15 @@ namespace GUI
         }
         private void frmTuyenXe_Load(object sender, EventArgs e)
         {
+            txtTimTen.Visible = false;
+            txtTimTuyen.Visible = false;
+            if (radTimTheoMa.Checked)
+            {
+                txtTimTuyen.Visible = true;
+            }
             HienThiTuyenXe();
             LoadTheme();
+      
         }
 
         private void dtgvTuyenXe_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -147,6 +154,19 @@ namespace GUI
             {
                 MessageBox.Show("Không cập nhật được.");
             }
+        }
+
+        private void btnTim_Click(object sender, EventArgs e)
+        {
+            string ma = txtTimTuyen.Text;
+            List<TuyenXe_DTO> lsttxma = TuyenXe_BUS.TimTuyenXeTheoMa(ma);
+
+            if (lsttxma == null)
+            {
+                MessageBox.Show("Không tìm thấy!");
+                return;
+            }
+            dtgvTuyenXe.DataSource = lsttxma;
         }
     }
 }

@@ -51,7 +51,7 @@ namespace GUI
                     }
                 }
             }
-            catch(Exception ex)
+            catch(Exception)
             {
                 MessageBox.Show("Lỗi kết nối");
             }

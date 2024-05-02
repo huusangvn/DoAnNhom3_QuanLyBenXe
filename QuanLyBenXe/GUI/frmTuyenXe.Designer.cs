@@ -29,8 +29,7 @@ namespace GUI
         /// </summary>
         private void InitializeComponent()
         {
-            this.radTimTheoMa = new System.Windows.Forms.RadioButton();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtTimTuyen = new System.Windows.Forms.TextBox();
             this.lbTen1 = new System.Windows.Forms.Label();
             this.txtTenTuyen = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -48,27 +47,22 @@ namespace GUI
             this.dtgvTuyenXe = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.btnTim = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtTimTen = new System.Windows.Forms.TextBox();
+            this.radTimTheoMa = new System.Windows.Forms.RadioButton();
+            this.radTimTheoTen = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvTuyenXe)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // radTimTheoMa
+            // txtTimTuyen
             // 
-            this.radTimTheoMa.AutoSize = true;
-            this.radTimTheoMa.Location = new System.Drawing.Point(38, 474);
-            this.radTimTheoMa.Name = "radTimTheoMa";
-            this.radTimTheoMa.Size = new System.Drawing.Size(112, 21);
-            this.radTimTheoMa.TabIndex = 25;
-            this.radTimTheoMa.TabStop = true;
-            this.radTimTheoMa.Text = "Tìm Theo Mã";
-            this.radTimTheoMa.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(38, 515);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(284, 29);
-            this.textBox1.TabIndex = 24;
+            this.txtTimTuyen.Location = new System.Drawing.Point(6, 110);
+            this.txtTimTuyen.Multiline = true;
+            this.txtTimTuyen.Name = "txtTimTuyen";
+            this.txtTimTuyen.Size = new System.Drawing.Size(284, 29);
+            this.txtTimTuyen.TabIndex = 24;
             // 
             // lbTen1
             // 
@@ -253,19 +247,72 @@ namespace GUI
             this.label6.TabIndex = 27;
             this.label6.Text = "Thông Tin Tuyến";
             // 
+            // btnTim
+            // 
+            this.btnTim.Location = new System.Drawing.Point(359, 496);
+            this.btnTim.Name = "btnTim";
+            this.btnTim.Size = new System.Drawing.Size(75, 32);
+            this.btnTim.TabIndex = 31;
+            this.btnTim.Text = "Tìm";
+            this.btnTim.UseVisualStyleBackColor = true;
+            this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.radTimTheoMa);
+            this.groupBox1.Controls.Add(this.radTimTheoTen);
+            this.groupBox1.Controls.Add(this.txtTimTen);
+            this.groupBox1.Controls.Add(this.txtTimTuyen);
+            this.groupBox1.Location = new System.Drawing.Point(38, 478);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(296, 145);
+            this.groupBox1.TabIndex = 32;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "groupBox1";
+            // 
+            // txtTimTen
+            // 
+            this.txtTimTen.Location = new System.Drawing.Point(6, 57);
+            this.txtTimTen.Multiline = true;
+            this.txtTimTen.Name = "txtTimTen";
+            this.txtTimTen.Size = new System.Drawing.Size(284, 29);
+            this.txtTimTen.TabIndex = 24;
+            // 
+            // radTimTheoMa
+            // 
+            this.radTimTheoMa.AutoSize = true;
+            this.radTimTheoMa.Location = new System.Drawing.Point(17, 24);
+            this.radTimTheoMa.Name = "radTimTheoMa";
+            this.radTimTheoMa.Size = new System.Drawing.Size(110, 21);
+            this.radTimTheoMa.TabIndex = 33;
+            this.radTimTheoMa.TabStop = true;
+            this.radTimTheoMa.Text = "radioButton1";
+            this.radTimTheoMa.UseVisualStyleBackColor = true;
+            // 
+            // radTimTheoTen
+            // 
+            this.radTimTheoTen.AutoSize = true;
+            this.radTimTheoTen.Location = new System.Drawing.Point(156, 21);
+            this.radTimTheoTen.Name = "radTimTheoTen";
+            this.radTimTheoTen.Size = new System.Drawing.Size(110, 21);
+            this.radTimTheoTen.TabIndex = 34;
+            this.radTimTheoTen.TabStop = true;
+            this.radTimTheoTen.Text = "radioButton2";
+            this.radTimTheoTen.UseVisualStyleBackColor = true;
+            // 
             // frmTuyenXe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1129, 649);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.btnTim);
             this.Controls.Add(this.btnSua);
             this.Controls.Add(this.btnThem);
             this.Controls.Add(this.btnXoa);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.lbTen2);
             this.Controls.Add(this.dtgvTuyenXe);
-            this.Controls.Add(this.radTimTheoMa);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.lbTen1);
             this.Controls.Add(this.txtTenTuyen);
             this.Controls.Add(this.label3);
@@ -282,15 +329,15 @@ namespace GUI
             this.Text = "TUYẾN XE";
             this.Load += new System.EventHandler(this.frmTuyenXe_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvTuyenXe)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.RadioButton radTimTheoMa;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtTimTuyen;
         private System.Windows.Forms.Label lbTen1;
         private System.Windows.Forms.TextBox txtTenTuyen;
         private System.Windows.Forms.Label label3;
@@ -308,5 +355,10 @@ namespace GUI
         private System.Windows.Forms.DataGridView dtgvTuyenXe;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnTim;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.RadioButton radTimTheoMa;
+        private System.Windows.Forms.RadioButton radTimTheoTen;
+        private System.Windows.Forms.TextBox txtTimTen;
     }
 }
