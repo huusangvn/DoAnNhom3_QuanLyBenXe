@@ -34,8 +34,8 @@ namespace GUI
         private void fBanVe_Load(object sender, EventArgs e)
         {
             LoadTheme();
-            HienThiBanVe();
             HienViVe();
+            HienThiBanVe();
         }
         public void HienViVe()
         {
@@ -65,20 +65,17 @@ namespace GUI
         {
 
         }
-
-        private void dtgvBanVe_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dtgvBanVe_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
             DataGridViewRow r = new DataGridViewRow();
-            r = dtgvChiTietBanVe.SelectedRows[0];
-            txtMaVe.Text = r.Cells["IDVe1"].Value.ToString();
+            r = dtgvBanVe.SelectedRows[0];
+            txtMaVe.Text = r.Cells["IdVe1"].Value.ToString();
+            cbChuyenXe.Text = r.Cells["IdChuyen1"].Value.ToString();
             txtHoTen.Text = r.Cells["TenHanhKhach1"].Value.ToString();
             txtSDT.Text = r.Cells["SDTHanhKhach1"].Value.ToString();
-            cbChuyenXe.Text = r.Cells["TenTuyen1"].Value.ToString();
-           /* dtNgayDi.Text = r.Cells["NgayDi1"].Value.ToString();
-            txtGioXuatPhat.Text = r.Cells["Gio1"].Value.ToString();
-            cbBienSoXe.Text = r.Cells["So_Xe1"].Value.ToString();
-            txtGia.Text = r.Cells["Gia1"].Value.ToString();*/
+
         }
+      
 
         private void label4_Click(object sender, EventArgs e)
         {
@@ -117,7 +114,7 @@ namespace GUI
             else
             {
                 HienThiBanVe();
-                MessageBox.Show("Đã thêm tuyến xe.");
+                MessageBox.Show("Đã thêm vé xe.");
                 HienViVe();
             }
         }
@@ -129,7 +126,59 @@ namespace GUI
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            
+            // kiểm tra mã có tồn tại
+            if (txtMaVe.Text == "" || BanVe_BUS.TimVeTheoMa(txtMaVe.Text) == null)
+            {
+                MessageBox.Show("Vui lòng chọn mã vé!");
+                return;
+            }
+            BanVe_DTO bv = new BanVe_DTO();
+            bv.IdVe1 = txtMaVe.Text;
+            bv.IdChuyen1 = cbChuyenXe.Text;
+            bv.TenHanhKhach1 = txtHoTen.Text;
+            bv.SDTHanhKhach1 = Int32.Parse(txtSDT.Text);
+
+            if (BanVe_BUS.XoaVe(bv) == true)
+            {
+                HienThiBanVe();
+                MessageBox.Show("Đã xóa vé xe.");
+                HienViVe();
+            }
+            else
+            {
+                MessageBox.Show("Không xóa được.");
+            }
+        }
+
+        private void dtgvChiTietBanVe_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            if (txtMaVe.Text == "" || BanVe_BUS.TimVeTheoMa(txtMaVe.Text) == null)
+            {
+                MessageBox.Show("Vui lòng chọn mã vé!");
+                return;
+            }
+            BanVe_DTO bv = new BanVe_DTO();
+            bv.IdVe1 = txtMaVe.Text;
+            bv.IdChuyen1 = cbChuyenXe.Text;
+            bv.TenHanhKhach1 = txtHoTen.Text;
+            bv.SDTHanhKhach1 = Int32.Parse(txtSDT.Text);
+
+
+            if (BanVe_BUS.SuaVe(bv) == true)
+            {
+                HienThiBanVe();
+                MessageBox.Show("Đã cập nhật thông tin vé xe.");
+                HienViVe();
+            }
+            else
+            {
+                MessageBox.Show("Không cập nhật được.");
+            }
         }
     }
 }

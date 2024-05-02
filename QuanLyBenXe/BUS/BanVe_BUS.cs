@@ -23,5 +23,17 @@ namespace BUS
         {
             return BanVe_DAO.ThemVe(bv);
         }
+
+        // Sửa nhân viên
+        public static bool SuaVe(BanVe_DTO bv)
+        {
+            return BanVe_DAO.SuaVe(bv);
+        }
+
+        // Xóa nhân viên
+        public static bool XoaVe(BanVe_DTO bv)
+        {
+            return BanVe_DAO.XoaVe(bv);
+        }
     }
 }

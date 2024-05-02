@@ -67,5 +67,25 @@ N'{1}',N'{2}',N'{3}')", bv.IdVe1,bv.IdChuyen1,bv.TenHanhKhach1,bv.SDTHanhKhach1)
             conn.Close();
             return kq;
         }
+        // SuaTuyenXe
+        public static bool SuaVe(BanVe_DTO bv)
+        {
+            string sTruyVan = string.Format(@"update BanVe set IdVe=N'{0}',IdChuyen=N'{1}',TenHanhKhach=N'{2}',SDTHanhKhach='{3}' where IdVe=N'{0}'", bv.IdVe1, bv.IdChuyen1, bv.TenHanhKhach1, bv.SDTHanhKhach1);
+            conn = DataProvider.Connect();
+            bool kq = DataProvider.TruyVanKhongLayDuLieu(sTruyVan, conn);
+            conn.Close();
+            return kq;
+
+        }
+
+        // XoaTuyenXe
+        public static bool XoaVe(BanVe_DTO bv)
+        {
+            string sTruyVan = string.Format(@"delete from BanVe where IdVe=N'{0}'", bv.IdVe1);
+            conn = DataProvider.Connect();
+            bool kq = DataProvider.TruyVanKhongLayDuLieu(sTruyVan, conn);
+            conn.Close();
+            return kq;
+        }
     }
 }

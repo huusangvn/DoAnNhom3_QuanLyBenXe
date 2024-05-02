@@ -62,7 +62,7 @@ namespace GUI
             this.dtgvChiTietBanVe.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgvChiTietBanVe.Size = new System.Drawing.Size(585, 519);
             this.dtgvChiTietBanVe.TabIndex = 0;
-            this.dtgvChiTietBanVe.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvBanVe_CellContentClick);
+            this.dtgvChiTietBanVe.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvChiTietBanVe_CellContentClick);
             // 
             // btnSua
             // 
@@ -76,6 +76,7 @@ namespace GUI
             this.btnSua.TabIndex = 33;
             this.btnSua.Text = "Sửa Vé";
             this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnThem
             // 
@@ -201,8 +202,10 @@ namespace GUI
             this.dtgvBanVe.Name = "dtgvBanVe";
             this.dtgvBanVe.RowHeadersWidth = 51;
             this.dtgvBanVe.RowTemplate.Height = 24;
+            this.dtgvBanVe.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgvBanVe.Size = new System.Drawing.Size(486, 350);
             this.dtgvBanVe.TabIndex = 38;
+            this.dtgvBanVe.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvBanVe_CellContentClick_1);
             // 
             // fBanVe
             // 
