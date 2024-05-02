@@ -36,8 +36,22 @@ namespace GUI
             HienViVe();
             List<TuyenXe_DTO> lstTuyenXe = TuyenXe_BUS.LayTuyenXe();
             cbBanVe.DataSource = lstTuyenXe;
+          
             cbBanVe.DisplayMember = "TenTuyen1";
             cbBanVe.ValueMember = "IdTuyen1";
+
+            //Combobox biển số xe
+            List<Xe_DTO> lstXe = Xe_BUS.LayXe();
+            cbBienSoXe.DataSource = lstXe;
+            cbBienSoXe.DisplayMember = "So_Xe1";
+            cbBienSoXe.ValueMember = "So_Xe1";
+
+            //Combobox Giờ Xuất Phát
+            List<ThoiDiem_DTO> lstThoiDiem = ThoiDiem_BUS.LayThoiDiem();
+            cbGioXuatPhat.DataSource = lstThoiDiem;
+            cbGioXuatPhat.DisplayMember = "Gio1";
+            cbGioXuatPhat.ValueMember = "Gio1";
+
             LoadTheme();
         }
         public void HienViVe()
@@ -70,6 +84,56 @@ namespace GUI
             txtHoTen.Text = r.Cells["TenHanhKhach1"].Value.ToString();
             txtSDT.Text = r.Cells["SDTHanhKhach1"].Value.ToString();
             cbBanVe.Text = r.Cells["TenTuyen1"].Value.ToString();
+            dtNgayDi.Text = r.Cells["NgayDi1"].Value.ToString();
+            cbGioXuatPhat.Text = r.Cells["Gio1"].Value.ToString();
+            cbBienSoXe.Text = r.Cells["So_Xe1"].Value.ToString();
+            txtGia.Text = r.Cells["Gia1"].Value.ToString();
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            if (txtMaVe.Text == "" || txtHoTen.Text == "" || txtSDT.Text == "" || cbGioXuatPhat.Text == "" || txtGia.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ dữ liệu!");
+                return;
+            }
+            // Kiểm tra mã tuyến có độ dài chuỗi hợp lệ hay không
+            if (txtMaVe.Text.Length > 6)
+            {
+                MessageBox.Show("Mã nhân viên tối đa 5 ký tự!");
+                return;
+            }
+            // Kiểm tra mã nhân viên có bị trùng không
+            if (BanVe_BUS.TimVeTheoMa(txtMaVe.Text) != null)
+            {
+                MessageBox.Show("Mã vé xe đã tồn tại!");
+                return;
+            }
+            BanVe_DTO bv = new BanVe_DTO();
+            bv.IDVe1 = txtMaVe.Text;
+            bv.TenHanhKhach1 = txtHoTen.Text;
+            bv.SDTHanhKhach1 = Int32.Parse(txtSDT.Text);
+            bv.TenTuyen1 = cbBanVe.Text;
+            bv.NgayDi1 = DateTime.Parse(dtNgayDi.Text);
+            bv.Gio1 = cbGioXuatPhat.Text;
+            bv.So_Xe1 = cbBienSoXe.Text;
+            bv.Gia1 = Int32.Parse(txtGia.Text);
+
+            if (BanVe_BUS.ThemVeXe(bv) == false)
+            {
+                MessageBox.Show("Không thêm được.");
+                return;
+            }
+            else
+            {
+                HienViVe();
+                MessageBox.Show("Đã thêm vé xe.");
+            }
         }
     }
 }
