@@ -7,34 +7,38 @@ using System.Text;
 using DTO;
 namespace DAO
 {
-    public class BanVe_DAO
+    public class ChiTietBanVe_DAO
     {
+
         static SqlConnection conn;
-        public static List<BanVe_DTO> BanVe()
+        public static List<ChiTietBanVe_DTO> LayVe()
         {
-            string sTruyVan = @"select *from BanVe";
+            string sTruyVan = @"select bv.*, cx.NgayDi, cx.Gio, cx.So_Xe,cx.IdTuyen, tx.TenTuyen from TuyenXe tx, ChuyenXe cx, BanVe bv where cx.IdChuyen = bv.IdChuyen and cx.IdTuyen = tx.IdTuyen";
             conn = DataProvider.Connect();
             DataTable dt = DataProvider.TruyVanLayDuLieu(sTruyVan, conn);
             if (dt.Rows.Count == 0)
             {
                 return null;
             }
-            List<BanVe_DTO> lstBanVe = new List<BanVe_DTO>();
+            List<ChiTietBanVe_DTO> lstBanVe = new List<ChiTietBanVe_DTO>();
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                BanVe_DTO bv = new BanVe_DTO();
-                bv.IdVe1 = dt.Rows[i]["IdVe"].ToString();
-                bv.IdChuyen1 = dt.Rows[i]["IdChuyen"].ToString();
+                ChiTietBanVe_DTO bv = new ChiTietBanVe_DTO();
+                bv.IDVe1 = dt.Rows[i]["IdVe"].ToString();
                 bv.TenHanhKhach1 = dt.Rows[i]["TenHanhKhach"].ToString();
                 bv.SDTHanhKhach1 = (int)dt.Rows[i]["SDTHanhKhach"];
+                bv.TenTuyen1 = dt.Rows[i]["TenTuyen"].ToString();
+                bv.NgayDi1 = (DateTime)dt.Rows[i]["NgayDi"];
+                bv.Gio1 = dt.Rows[i]["Gio"].ToString();
+                bv.So_Xe1 = dt.Rows[i]["So_Xe"].ToString();
                 lstBanVe.Add(bv);
             }
             conn.Close();
             return lstBanVe;
         }
 
-        //Tìm vé xe theo mã
-        public static List<BanVe_DTO> TimVeTheoMa(string ma)
+        //Tìm tuyến xe theo mã
+        public static List<ChiTietBanVe_DTO> TimVeTheoMa(string ma)
         {
             string sTruyVan = string.Format(@"select * from BanVe where IdVe like '%{0}%'", ma);
             conn = DataProvider.Connect();
@@ -43,29 +47,24 @@ namespace DAO
             {
                 return null;
             }
-            List<BanVe_DTO> lstBanVe = new List<BanVe_DTO>();
+            List<ChiTietBanVe_DTO> lstBanVe = new List<ChiTietBanVe_DTO>();
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                BanVe_DTO bv = new BanVe_DTO();
-                bv.IdVe1 = dt.Rows[i]["IdVe"].ToString();
-                bv.IdChuyen1 = dt.Rows[i]["IdChuyen"].ToString();
+                ChiTietBanVe_DTO bv = new ChiTietBanVe_DTO();
+                bv.IDVe1 = dt.Rows[i]["IdVe"].ToString();
                 bv.TenHanhKhach1 = dt.Rows[i]["TenHanhKhach"].ToString();
                 bv.SDTHanhKhach1 = (int)dt.Rows[i]["SDTHanhKhach"];
-                lstBanVe.Add(bv);
+/*
+                bv.TenTuyen1 = dt.Rows[i]["TenTuyen"].ToString();
+                bv.Gia1 = (int)dt.Rows[i]["Gia"];
+                bv.NgayDi1 = (DateTime)dt.Rows[i]["NgayDi"];
+                bv.Gio1 = dt.Rows[i]["Gio"].ToString();
+                bv.So_Xe1 = dt.Rows[i]["So_Xe"].ToString();
+                lstBanVe.Add(bv);*/
             }
             conn.Close();
             return lstBanVe;
         }
 
-        //Thêm vé
-        public static bool ThemVe(BanVe_DTO bv)
-        {
-            string sTruyVan = string.Format(@"insert into BanVe values(N'{0}',
-N'{1}',N'{2}',N'{3}')", bv.IdVe1,bv.IdChuyen1,bv.TenHanhKhach1,bv.SDTHanhKhach1);
-            conn = DataProvider.Connect();
-            bool kq = DataProvider.TruyVanKhongLayDuLieu(sTruyVan, conn);
-            conn.Close();
-            return kq;
-        }
     }
 }

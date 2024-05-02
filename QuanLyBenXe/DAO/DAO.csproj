@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BanVe_DAO.cs" />
+    <Compile Include="ChiTietBanVe_DAO.cs" />
     <Compile Include="ChuyenXe_DAO.cs" />
     <Compile Include="DataProvider.cs" />
     <Compile Include="NguoiDung_DAO.cs" />

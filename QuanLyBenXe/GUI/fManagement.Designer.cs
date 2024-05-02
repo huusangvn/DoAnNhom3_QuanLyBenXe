@@ -29,6 +29,7 @@ namespace GUI
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.Button btnTicket;
             this.panelMenu = new System.Windows.Forms.Panel();
             this.btnCaiDat = new System.Windows.Forms.Button();
             this.btnDangXuat = new System.Windows.Forms.Button();
@@ -36,13 +37,13 @@ namespace GUI
             this.btnHuongDan = new System.Windows.Forms.Button();
             this.btnTuyenXe = new System.Windows.Forms.Button();
             this.btnXe = new System.Windows.Forms.Button();
-            this.btnTicket = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.pnTitleBar = new System.Windows.Forms.Panel();
             this.btnCloseChildForm = new System.Windows.Forms.Button();
             this.tblTitle = new System.Windows.Forms.Label();
             this.pnDeskTop = new System.Windows.Forms.Panel();
+            btnTicket = new System.Windows.Forms.Button();
             this.panelMenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
             this.pnTitleBar.SuspendLayout();
@@ -57,7 +58,7 @@ namespace GUI
             this.panelMenu.Controls.Add(this.btnHuongDan);
             this.panelMenu.Controls.Add(this.btnTuyenXe);
             this.panelMenu.Controls.Add(this.btnXe);
-            this.panelMenu.Controls.Add(this.btnTicket);
+            this.panelMenu.Controls.Add(btnTicket);
             this.panelMenu.Controls.Add(this.panelLogo);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
@@ -179,23 +180,23 @@ namespace GUI
             // 
             // btnTicket
             // 
-            this.btnTicket.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnTicket.FlatAppearance.BorderSize = 0;
-            this.btnTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTicket.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTicket.ForeColor = System.Drawing.SystemColors.InactiveBorder;
-            this.btnTicket.Image = global::GUI.Properties.Resources.ticket2;
-            this.btnTicket.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTicket.Location = new System.Drawing.Point(0, 90);
-            this.btnTicket.Name = "btnTicket";
-            this.btnTicket.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btnTicket.Size = new System.Drawing.Size(230, 80);
-            this.btnTicket.TabIndex = 1;
-            this.btnTicket.Text = "   Bán Vé";
-            this.btnTicket.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTicket.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnTicket.UseVisualStyleBackColor = false;
-            this.btnTicket.Click += new System.EventHandler(this.btnTicket_Click);
+            btnTicket.Dock = System.Windows.Forms.DockStyle.Top;
+            btnTicket.FlatAppearance.BorderSize = 0;
+            btnTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnTicket.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            btnTicket.ForeColor = System.Drawing.SystemColors.InactiveBorder;
+            btnTicket.Image = global::GUI.Properties.Resources.ticket2;
+            btnTicket.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            btnTicket.Location = new System.Drawing.Point(0, 90);
+            btnTicket.Name = "btnTicket";
+            btnTicket.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            btnTicket.Size = new System.Drawing.Size(230, 80);
+            btnTicket.TabIndex = 1;
+            btnTicket.Text = "   Bán Vé";
+            btnTicket.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            btnTicket.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            btnTicket.UseVisualStyleBackColor = false;
+            btnTicket.Click += new System.EventHandler(this.btnTicket_Click);
             // 
             // panelLogo
             // 
@@ -290,7 +291,6 @@ namespace GUI
         #endregion
 
         private System.Windows.Forms.Panel panelMenu;
-        private System.Windows.Forms.Button btnTicket;
         private System.Windows.Forms.Panel panelLogo;
         private System.Windows.Forms.Button btnTuyenXe;
         private System.Windows.Forms.Button btnXe;

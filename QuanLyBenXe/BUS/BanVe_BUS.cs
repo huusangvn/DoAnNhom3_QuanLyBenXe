@@ -8,19 +8,20 @@ namespace BUS
 {
     public class BanVe_BUS
     {
-        public static List<BanVe_DTO> LayVe()
+        public static List<BanVe_DTO> BanVe()
         {
-            return BanVe_DAO.LayVe();
+            return BanVe_DAO.BanVe();
         }
+
         //Tìm vé  theo mã
         public static List<BanVe_DTO> TimVeTheoMa(string ma)
         {
             return BanVe_DAO.TimVeTheoMa(ma);
         }
         // Thêm vé xe
-        public static bool ThemVeXe(BanVe_DTO bv)
+        public static bool ThemVe(BanVe_DTO bv)
         {
-            return BanVe_DAO.ThemVeXe(bv);
+            return BanVe_DAO.ThemVe(bv);
         }
-    } 
+    }
 }

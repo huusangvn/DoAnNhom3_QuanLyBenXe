@@ -44,12 +44,6 @@ namespace GUI
         }
         private void frmTuyenXe_Load(object sender, EventArgs e)
         {
-            txtTimTen.Visible = false;
-            txtTimTuyen.Visible = false;
-            if (radTimTheoMa.Checked)
-            {
-                txtTimTuyen.Visible = true;
-            }
             HienThiTuyenXe();
             LoadTheme();
       

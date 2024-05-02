@@ -46,19 +46,16 @@ namespace GUI
                 switch (iQuyen)
                 {
                     case "Admin": // SV tự bổ sung
-                        btnTicket.Visible = false;
                         btnXe.Visible = false;
                         btnTuyenXe.Visible = false;
                         btnHuongDan.Visible = false;
                         btnCaiDat.Visible = false;
                         break;
                     case "Quan_Ly": // SV tự bổ sung
-                        btnTicket.Visible = false;
                         btnTuyenXe.Visible = false;
                         btnXe.Visible = false;
                         break;
                 default:
-                    btnTicket.Visible = true;
                     btnXe.Visible = true;
                     btnTuyenXe.Visible = true;
                     btnHuongDan.Visible = true;

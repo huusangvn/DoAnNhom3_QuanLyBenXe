@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BanVe_DTO.cs" />
+    <Compile Include="ChiTietBanVe_DTO.cs" />
     <Compile Include="ChoNgoi_DTO.cs" />
     <Compile Include="ChuyenXe_DTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
